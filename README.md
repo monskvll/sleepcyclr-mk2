@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# sleepcyclr 2.0
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+sleepcycler 2.0 is a lightweight web app that helps you plan your sleep schedule based on natural sleep cycles. It calculates optimal times to fall asleep or wake up so you can feel more rested and avoid waking during deep sleep.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Human sleep operates in cycles of approximately 90 minutes. Waking up at the end of a cycle, rather than in the middle of one, can significantly improve how rested you feel.
 
-## React Compiler
+sleepcycler 2.0 uses this principle to calculate:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Ideal wake-up times based on when you go to sleep
+- Ideal bedtimes based on when you need to wake up
 
-## Expanding the ESLint configuration
+The app continuously keeps results aligned with the current time, ensuring recommendations stay accurate.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Sleep cycle-based time calculations
+- Automatically updates in real time
+- Minute-level synchronization with the system clock
+- Simple and responsive UI
+- No external dependencies for core logic
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## How It Works
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The app calculates sleep cycles using:
+
+- An average cycle length of 90 minutes
+- An estimated time to fall asleep (typically ~15 minutes)
+
+For example:
+
+- If you go to bed at 23:00, recommended wake-up times will be spaced in 90-minute intervals after accounting for time to fall asleep.
+- If you need to wake up at a specific time, the app works backward to suggest optimal bedtimes.
+
+## Technical Details
+
+### Timing Logic
+
+The app synchronizes updates with real-world minute boundaries:
+
+1. On load, it calculates the delay until the next full minute
+2. It performs an update exactly at that boundary
+3. Subsequent updates are scheduled to remain aligned with the system clock
+
+This avoids drift and keeps displayed times accurate.
+
+## Getting Started
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/monskvll/sleepcyclr-mk2.git
+cd sleepcyclr-mk2
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### Run the app
+
+```bash
+npm run dev
+```
+
+or
+
+```bash
+npm start
+```
+
+Then open your browser at the provided local development URL.
+
+## Usage
+
+- Open the app
+- Choose whether you want to wake up at a specific time or go to sleep now
+- View the recommended times based on sleep cycles
+
+The app will automatically keep results up to date.
+
+## Limitations
+
+- Sleep cycles vary between individuals; 90 minutes is an average
+- Does not account for sleep disorders or irregular sleep patterns
+- Accuracy depends on consistent sleep habits

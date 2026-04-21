@@ -1,8 +1,9 @@
 {
   "name": "my-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "homepage": "https://monskvll.github.io/sleepcyclr-mk2/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
