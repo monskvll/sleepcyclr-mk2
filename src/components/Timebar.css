@@ -1,0 +1,38 @@
+.timebar {
+	display: flex;
+	flex: 1;
+	justify-content: space-around;
+	align-items: center;
+	color: rgba(255, 255, 255, 0.856);
+	width: 100%;
+}
+
+.time {
+	position: absolute;
+	font-size: 5em;
+	padding: 0em 0.5em;
+}
+
+.bg1 {
+	background-color: #622828;
+}
+
+.bg2 {
+	background-color: #752f2f;
+}
+
+.bg3 {
+	background-color: #923a3a;
+}
+
+.bg4 {
+	background-color: #06626b;
+}
+
+.bg5 {
+	background-color: #06545b;
+}
+
+.bg6 {
+	background-color: #053e43;
+}
