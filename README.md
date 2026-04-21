@@ -1,12 +1,12 @@
-# sleepcyclr 2.0
+# sleepcyclr mk2
 
-sleepcycler 2.0 is a lightweight web app that helps you plan your sleep schedule based on natural sleep cycles. It calculates optimal times to fall asleep or wake up so you can feel more rested and avoid waking during deep sleep.
+sleepcycler mk2 is a lightweight web app that helps you plan your sleep schedule based on natural sleep cycles. It calculates optimal times to fall asleep or wake up so you can feel more rested and avoid waking during deep sleep.
 
 ## Overview
 
 Human sleep operates in cycles of approximately 90 minutes. Waking up at the end of a cycle, rather than in the middle of one, can significantly improve how rested you feel.
 
-sleepcycler 2.0 uses this principle to calculate:
+sleepcycler mk2 uses this principle to calculate:
 
 - Ideal wake-up times based on when you go to sleep
 - Ideal bedtimes based on when you need to wake up
